@@ -52,3 +52,9 @@ export const StyledListButton2 = styled(ListItemButton)(() => ({
     }
 
 }));
+
+// right grid card
+export const RightContactCard = styled(Grid)(() => ({
+    padding:'20px',
+
+}));

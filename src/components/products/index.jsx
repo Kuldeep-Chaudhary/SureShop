@@ -34,9 +34,9 @@ export default function Products({ showAll = false }) {
 
   return (
     <>
-    <Box display="flex" justifyContent={"center"} sx={{p:4}}>
+    {/* <Box display="flex" justifyContent={"center"} sx={{p:4}}>
       <Typography variant="h4">Our Products</Typography>
-    </Box>
+    </Box> */}
     <Container
       sx={{
         display: "flex",

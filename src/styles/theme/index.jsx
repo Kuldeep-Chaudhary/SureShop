@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
-import { borderColor, lighten } from "polished";
+import {  lighten } from "polished";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export const Colors={
     primary : "#5f2c3e",
@@ -88,4 +89,10 @@ const theme =  createTheme({
 
 })
 
+export function Matches(){
+    
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
+    return matches;
+}
 export default theme;
