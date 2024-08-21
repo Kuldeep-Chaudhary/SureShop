@@ -1,9 +1,15 @@
 import React from 'react'
+import PageBanner from '../components/banner/PageBanner'
 
 const About = () => {
   return (
-    <div>About
-    </div>
+    <PageBanner
+   heading="About Us"
+   breadcrumbLinks={[
+     { label: 'Home', href: '/' },
+     { label: 'About', href: '/about' }
+   ]}
+ />
   )
 };
 

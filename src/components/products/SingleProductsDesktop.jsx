@@ -14,6 +14,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 import { useState } from "react";
 import { useUIContext } from "../../context/ui";
+import { Link } from "react-router-dom";
 
 export default function SingleProductsDesktop({ product, matches }) {
   const [showOptaions, setShowOptions] = useState(false);
@@ -46,7 +47,7 @@ export default function SingleProductsDesktop({ product, matches }) {
             <ProductActionButton>
               <ShareIcon color="primary" />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton LinkComponent={Link} to='/productdetail'>
               <FitScreenIcon color="primary" />
             </ProductActionButton>
           </Stack>

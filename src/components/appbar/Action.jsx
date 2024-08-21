@@ -6,6 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { Colors } from "../../styles/theme";
 import {  hoverButtonStyles} from "../../styles/appbar";
 import { useUIContext } from "../../context/ui";
+import { Link } from "react-router-dom";
 
 
 export default function Actions({matches}) {
@@ -20,7 +21,7 @@ export default function Actions({matches}) {
         <Componenet>
             
         <MyList type="row">
-            <ListItemButton  sx={hoverButtonStyles}>
+            <ListItemButton LinkComponent={Link} to='/cart'  sx={hoverButtonStyles}>
                 <ListItemIcon
                 sx={{
                     display:"flex",
@@ -44,7 +45,7 @@ export default function Actions({matches}) {
                 </ListItemIcon>
             </ListItemButton>
             <Divider orientation="vertical" flexItem/>
-            <ListItemButton  sx={hoverButtonStyles}>
+            <ListItemButton LinkComponent={Link} to='/login'  sx={hoverButtonStyles}>
                 <ListItemIcon
                 sx={{
                     display:"flex",
