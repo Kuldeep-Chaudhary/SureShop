@@ -1,4 +1,6 @@
+import { useMediaQuery } from "@mui/material";
 import { createContext,useContext, useState } from "react"
+import theme from "../../styles/theme";
 
 
 export const UIContext = createContext();
@@ -9,6 +11,8 @@ export const UIProvider = ({children}) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [showSearchBox, setShowSearchBox] = useState(false);
     const [cartValue, setCartValue] = useState(0);
+    const atMobileScreen = useMediaQuery(theme.breakpoints.up('md'));
+    const [barActive, setBarActive] = useState(atMobileScreen);
 
     const value = {
         drawerOpen,
@@ -16,7 +20,9 @@ export const UIProvider = ({children}) => {
         showSearchBox,
         setShowSearchBox,
         cartValue,
-        setCartValue
+        setCartValue,
+        barActive,
+        setBarActive
     }
 
     return <UIContext.Provider value={value}>{children}</UIContext.Provider>

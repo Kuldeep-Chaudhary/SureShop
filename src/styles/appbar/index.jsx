@@ -1,8 +1,6 @@
 import { Box, IconButton, List, styled, Typography } from "@mui/material";
 import { Colors } from "../theme";
 import "@fontsource/montez"
-import { borderRadius, position } from "polished";
-import { Height, VerticalAlignCenter } from "@mui/icons-material";
 
 // Container
 export const AppbarContainer = styled(Box)(() => ({

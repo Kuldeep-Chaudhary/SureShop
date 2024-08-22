@@ -11,8 +11,11 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/dashboard";
-import DashboardNavbar from "./pages/dashboard/DashboardNavbar";
-import DashboardFooter from "./components/dashboard/DashboardFooter";
+import { Container } from "@mui/material";
+import DProducts from "./pages/dashboard/DProducts";
+import AddProducts from "./pages/dashboard/AddProducts";
+import User from "./pages/dashboard/User";
+import EditData from "./pages/dashboard/EditData";
 
 function App() {
 
@@ -28,6 +31,13 @@ function App() {
   return (
     <>
     {showNavbarFooter && <Navbar/> }
+        {/* <Container
+          maxWidth="xxl"
+          sx={{
+            bgcolor: "#fff",
+            py: 0,
+          }}
+        > */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
@@ -38,7 +48,12 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/admin/dashboard" element={<Dashboard />} />
+        <Route exact path="/admin/dproducts" element={<DProducts />} />
+        <Route exact path="/admin/addproducts" element={<AddProducts />} />
+        <Route exact path="/admin/user" element={<User />} />
+        <Route exact path="/admin/editdata" element={<EditData />} />
       </Routes>
+      {/* </Container> */}
       {showNavbarFooter && <Footer />}
     </>
   );
