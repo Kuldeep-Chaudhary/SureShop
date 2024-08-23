@@ -8,10 +8,10 @@ export const StyledListItemButton = styled(ListItemButton)(()=> ({
     alignItems:"center",
     transition:".4s",
     '&.active': {
-        backgroundColor: Colors.secondary,
+        backgroundColor: darken(0.1, Colors.secondary),
     },
     "&:hover":{
-        background:darken(0.1, Colors.secondary),
+        background:Colors.secondary,
     },
     '& .MuiSvgIcon-root':{
         color:Colors.white,

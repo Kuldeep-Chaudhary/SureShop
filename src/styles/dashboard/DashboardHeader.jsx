@@ -1,5 +1,6 @@
 import { styled ,Box} from "@mui/material";
 import { Colors } from "../theme";
+import { darken } from "polished";
 
 
 
@@ -8,7 +9,7 @@ export const HeaderContainer = styled(Box)(()=> ({
     justifyContent:"space-between",
     alignItems:"center",
     padding:"10px 15px",
-    background:Colors.secondary,
+    background:darken(0.1, Colors.secondary),
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
 
 }))

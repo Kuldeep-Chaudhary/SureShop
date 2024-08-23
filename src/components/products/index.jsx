@@ -1,4 +1,4 @@
-import { Container, Grid, useMediaQuery, useTheme,Typography,Box } from "@mui/material";
+import { Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { products } from "../../data";
 import SingleProducts from "./SingleProducts";
 import SingleProductsDesktop from "./SingleProductsDesktop";

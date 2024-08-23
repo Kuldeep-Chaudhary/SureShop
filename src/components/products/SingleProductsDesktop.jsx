@@ -25,7 +25,7 @@ export default function SingleProductsDesktop({ product, matches }) {
   const handleMouseLeave = () => {
     setShowOptions(false);
   };
-  const {cartValue,setCartValue} = useUIContext();
+  const {setCartValue} = useUIContext();
 
 
   return (

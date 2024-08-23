@@ -1,4 +1,4 @@
-import { IconButton, List, Typography } from "@mui/material";
+import { IconButton, List } from "@mui/material";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { StyledListItemButton, StyledTypography } from "../../styles/dashboard/DashboardAccordian";
 import { MiddleDivider } from "../../styles/dashboard/DashboardSidebar";
