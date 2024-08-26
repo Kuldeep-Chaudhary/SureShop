@@ -1,4 +1,4 @@
-import { Button, Container, FormControl, Grid, List, ListItemIcon, ListItemText, TextareaAutosize, Typography } from "@mui/material";
+import { Button, Container, FormControl, Grid, List, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';

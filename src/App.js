@@ -11,7 +11,6 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/dashboard";
-import { Container } from "@mui/material";
 import DProducts from "./pages/dashboard/DProducts";
 import AddProducts from "./pages/dashboard/AddProducts";
 import User from "./pages/dashboard/User";
@@ -31,13 +30,6 @@ function App() {
   return (
     <>
     {showNavbarFooter && <Navbar/> }
-        {/* <Container
-          maxWidth="xxl"
-          sx={{
-            bgcolor: "#fff",
-            py: 0,
-          }}
-        > */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
@@ -53,7 +45,6 @@ function App() {
         <Route exact path="/admin/user" element={<User />} />
         <Route exact path="/admin/editdata" element={<EditData />} />
       </Routes>
-      {/* </Container> */}
       {showNavbarFooter && <Footer />}
     </>
   );
