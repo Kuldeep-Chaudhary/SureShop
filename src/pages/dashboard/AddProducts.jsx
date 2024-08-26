@@ -1,15 +1,131 @@
-import React from 'react'
-import DashboardFooter from '../../components/dashboard/DashboardFooter'
-import DashboardNavbar from './DashboardNavbar'
+import React, { useState } from 'react';
+import DashboardFooter from '../../components/dashboard/DashboardFooter';
+import DashboardNavbar from './DashboardNavbar';
+import { ParentContain } from '../../styles/dashboard';
+import { useUIContext } from "../../context/ui";
+import { Button, FormControl, Grid, TextField, Typography, Box, Input, IconButton, InputLabel } from '@mui/material';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import axios from 'axios';
 
 const AddProducts = () => {
-  return (
-    <>
-    <DashboardNavbar/>
-    <div>AddProducts</div>
-    <DashboardFooter/>
-    </>
-  )
+  const { barActive } = useUIContext();
+  const [image, setImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
+  const [dinpute, setdinpute] = useState({pname:'',pcategory:'',psize:'',pprice:'',pupload:'',pdescription:''});
+
+  const inphendle = (e)=>{
+    const {name,value}=e.target
+    setdinpute({...dinpute,[name]:value})
+  }
+
+
+const postproduct = async(e)=>{
+  const response = await axios.post('http://localhost:9999/admin/addproducts',dinpute)
+  // setfnwaknf(response.data)
 }
 
+  return (
+    <>
+      <ParentContain barActive={barActive}>
+      <DashboardNavbar />
+        <Typography variant='h4' my={3} textAlign="center">Add New Products</Typography>
+
+        <Grid container spacing={{ xs: 2, sm: 2, md: 2, lg: 2 }} p={3}>
+          <Grid item xs={12} sm={6} md={6}>
+            <FormControl fullWidth>
+              <TextField id="pname" label="Product Name" variant="outlined" value={dinpute.pname} name='pname' onChange={inphendle}/>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <FormControl fullWidth>
+              <TextField id="pcategory" label="Product Category" variant="outlined" value={dinpute.pcategory} onChange={inphendle} name='pcategory'/>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4} md={4}>
+            <FormControl fullWidth>
+              <TextField id="psize" label="Product Size" variant="outlined" value={dinpute.psize}  onChange={inphendle} name='psize'/>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4} md={4}> 
+            <FormControl fullWidth>
+              <TextField id="pprice" label="Product Price" variant="outlined" value={dinpute.pprice} onChange={inphendle} name='pprice'/>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4} md={4}>
+            <FormControl fullWidth>
+              <Input
+                id="pupload"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                style={{ display: 'none' }}
+                 name='pupload'
+              />
+              <label htmlFor="pupload">
+                <Button
+                  variant="outlined"
+                  component="span"
+                  startIcon={<PhotoCameraIcon />}
+                  fullWidth
+                  sx={{    padding: "16.5px 14px",justifyContent:"start"}}
+                  
+                 onChange={inphendle}
+                 value={dinpute.pupload}
+                >
+                  Upload Image
+                </Button>
+              </label>
+              {image && (
+                <Box
+                  component="img"
+                  src={image}
+                  alt="Uploaded preview"
+                  sx={{ width: 100, height: 100, objectFit: 'cover', mt: 2 }}
+                />
+              )}
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl fullWidth>
+              <TextField
+                id="pdescription"
+                label="Product Description"
+                multiline
+                rows={4}
+                variant="outlined"
+                fullWidth
+                onChange={inphendle} name='pdescription'
+                 value={dinpute.pdescription}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                padding: "10px 20px",
+              }}
+              onClick={postproduct}
+            >
+              Add Products
+            </Button>
+          </Grid>
+        </Grid>
+        <DashboardFooter />
+      </ParentContain>
+    </>
+  );
+};
+
 export default AddProducts;
+
+
+
+// https://ride-store-newdemo.myshopify.com/pages/contact-us-1
