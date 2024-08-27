@@ -3,19 +3,12 @@ import DashboardFooter from '../../components/dashboard/DashboardFooter';
 import DashboardNavbar from './DashboardNavbar';
 import { ParentContain } from '../../styles/dashboard';
 import { useUIContext } from "../../context/ui";
-import { Button, FormControl, Grid, TextField, Typography, Box, Input, IconButton, InputLabel } from '@mui/material';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
-import axios from 'axios';
+import { Button, FormControl, Grid, TextField, Typography, } from '@mui/material';
+
+// import axios from 'axios';
 
 const AddProducts = () => {
   const { barActive } = useUIContext();
-  const [image, setImage] = useState(null);
-
-  const handleImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-    }
-  };
 
   const [dinpute, setdinpute] = useState({pname:'',pcategory:'',psize:'',pprice:'',pupload:'',pdescription:''});
 
@@ -25,10 +18,10 @@ const AddProducts = () => {
   }
 
 
-const postproduct = async(e)=>{
-  const response = await axios.post('http://localhost:9999/admin/addproducts',dinpute)
-  // setfnwaknf(response.data)
-}
+// const postproduct = async(e)=>{
+//   const response = await axios.post('http://localhost:9999/admin/addproducts',dinpute)
+//   // setfnwaknf(response.data)
+// }
 
   return (
     <>
@@ -57,38 +50,9 @@ const postproduct = async(e)=>{
               <TextField id="pprice" label="Product Price" variant="outlined" value={dinpute.pprice} onChange={inphendle} name='pprice'/>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={4} md={4}>
+          <Grid item xs={12} sm={4} md={4}> 
             <FormControl fullWidth>
-              <Input
-                id="pupload"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                style={{ display: 'none' }}
-                 name='pupload'
-              />
-              <label htmlFor="pupload">
-                <Button
-                  variant="outlined"
-                  component="span"
-                  startIcon={<PhotoCameraIcon />}
-                  fullWidth
-                  sx={{    padding: "16.5px 14px",justifyContent:"start"}}
-                  
-                 onChange={inphendle}
-                 value={dinpute.pupload}
-                >
-                  Upload Image
-                </Button>
-              </label>
-              {image && (
-                <Box
-                  component="img"
-                  src={image}
-                  alt="Uploaded preview"
-                  sx={{ width: 100, height: 100, objectFit: 'cover', mt: 2 }}
-                />
-              )}
+              <TextField id="pupload" label="Upload image" type='file' InputLabelProps={{shrink: true,}} variant="outlined" value={dinpute.pupload} onChange={inphendle} name='pupload'/>
             </FormControl>
           </Grid>
           <Grid item xs={12}>
@@ -112,7 +76,7 @@ const postproduct = async(e)=>{
               sx={{
                 padding: "10px 20px",
               }}
-              onClick={postproduct}
+              // onClick={postproduct}
             >
               Add Products
             </Button>

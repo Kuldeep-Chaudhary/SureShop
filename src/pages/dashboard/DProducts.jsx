@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardFooter from '../../components/dashboard/DashboardFooter'
 import DashboardNavbar from './DashboardNavbar'
-import { Box, Container, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Box, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { CartImage } from '../../styles/cart'
 import { products } from '../../data'
 import { ParentContain } from '../../styles/dashboard'
