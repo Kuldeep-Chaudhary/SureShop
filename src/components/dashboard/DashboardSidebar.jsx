@@ -4,6 +4,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import CloseIcon from '@mui/icons-material/Close';
 import SidebarAccordian from "./SidebarAccordian";
 import { useUIContext } from "../../context/ui";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 
@@ -13,7 +14,7 @@ export default function DashboardSidebar(){
         <SidebarContainer barActive={barActive}>          
             <SidebarBg ></SidebarBg>
             <SidebarHeader>
-                <IconButton><ShoppingBagIcon /></IconButton>
+                <IconButton LinkComponent={Link} to="/"><ShoppingBagIcon /></IconButton>
                 <SidebarTitle variant="h4"  barActive={barActive}>My Bags</SidebarTitle>
                 <CloseSidebar onClick={() => setBarActive (barActive ? false : true)}><CloseIcon/></CloseSidebar>
             </SidebarHeader>

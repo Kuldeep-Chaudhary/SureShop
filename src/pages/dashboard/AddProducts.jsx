@@ -5,7 +5,7 @@ import { ParentContain } from '../../styles/dashboard';
 import { useUIContext } from "../../context/ui";
 import { Button, FormControl, Grid, TextField, Typography, } from '@mui/material';
 
-// import axios from 'axios';
+import axios from 'axios';
 
 const AddProducts = () => {
   const { barActive } = useUIContext();
@@ -18,10 +18,10 @@ const AddProducts = () => {
   }
 
 
-// const postproduct = async(e)=>{
-//   const response = await axios.post('http://localhost:9999/admin/addproducts',dinpute)
-//   // setfnwaknf(response.data)
-// }
+const postproduct = async(e)=>{
+  const response = await axios.post('http://localhost:9999/admin/addproducts',dinpute)
+  // setfnwaknf(response.data)
+}
 
   return (
     <>
@@ -76,7 +76,7 @@ const AddProducts = () => {
               sx={{
                 padding: "10px 20px",
               }}
-              // onClick={postproduct}
+              onClick={postproduct}
             >
               Add Products
             </Button>
